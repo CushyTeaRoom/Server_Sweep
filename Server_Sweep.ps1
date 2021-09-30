@@ -25,7 +25,8 @@ Write-Host "Collecting Server IP's"
 $ServerIps = foreach ($computer in $Servers) {
 Get-CimInstance Win32_NetworkAdapterConfiguration -ComputerName $computer.name 2> $null | 
 where description -like "*net*" | 
-select PSComputername, IPAddress, Description} 
+select PSComputername, IPAddress, Description
+} 
 
 #Find Mail Server
 Write-Host "Finding Mail Server"
